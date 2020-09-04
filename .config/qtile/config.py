@@ -89,7 +89,11 @@ keys = [
     
     # Browser
     Key([mod], "b", lazy.spawn("firefox")),
-]
+    # Screenshot
+    Key([mod], "p", lazy.spawn("scrot /home/julen/images/screenshots/")),
+    # Nautilus (file manager)
+    Key([mod], "f", lazy.spawn("nautilus")),
+]   
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 # Icons: 
