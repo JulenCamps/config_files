@@ -19,13 +19,14 @@ Now you can install Qtile and the basic software that you will need:
 ```bash
 sudo pacman -S lightdm lightdm-gtk-greeter
 ```
-    Now enable the greeter by editing
-    ```bash
-    /etc/lightdm/lightdm.config
-    Scroll down and uncoment the line "greeter-session" and then add your greeter
-    ```
     
-    Example: greeter-session=lightdm-gtk-greeter
+Now enable the greeter by editing
+```bash
+/etc/lightdm/lightdm.config
+Scroll down and uncoment the line "greeter-session" and then add your greeter
+```
+
+Example: greeter-session=lightdm-gtk-greeter
 
 Qtile(window manager):
 
