@@ -193,7 +193,7 @@ screens = [
                     foreground=["#0f101a", "#0f101a"],
                     background=["#0174DF", "#0174DF"],
                     format='{down} ↓↑ {up}'
-                    # To run this widget you need to install psutil          
+                    # To run this widget you need to install psutil frop pip library         
                 ),   
                 widget.TextBox(
                     text="",
@@ -245,6 +245,10 @@ screens = [
                 ),    
                 widget.Systray(
                     background=["#0f101a", "#0f101a"]
+                    # Battery icon: install cbatticon from yay and add it to xsession
+                    # Volumeicon: install volumeicon and add it to xsession
+                    # Network Manager: install network-manager-applet and add nm-applet to .xsession
+                    # Udiskie: install udiskie ntfs-3g and add udiskie to .xsession
                 ),
                 widget.Sep(
                     linewidth=0, padding=5,
