@@ -83,6 +83,17 @@ keys = [
     Key([mod], "m", lazy.spawn("rofi -show drun")),
 
     # Window Nav
+    Key([mod], "j",
+        lazy.layout.grow(),
+        lazy.layout.increase_nmaster(),
+        desc='Expand window (MonadTall), increase number in master pane (Tile)'
+        ),
+    Key([mod], "k",
+        lazy.layout.shrink(),
+        lazy.layout.decrease_nmaster(),
+        desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
+            ),
+    
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # ------------ App Configs ------------
