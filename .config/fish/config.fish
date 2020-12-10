@@ -1,5 +1,7 @@
 set fish_greeting	#Delates the fish default welcome message
 
+#ALIASES
+alias cat='bat'
 
 #PROMPT
 # name: sashimi
@@ -75,5 +77,3 @@ end
 function _is_git_dirty
   echo (command git status -s --ignore-submodules=dirty ^/dev/null)
 end
-
-
