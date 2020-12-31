@@ -2,6 +2,8 @@ set fish_greeting	#Delates the fish default welcome message
 
 #ALIASES
 alias cat='bat'
+alias vim='nvim'
+alias tor='cd /home/julen/.tor-browser_en-US/ && ./start-tor-browser.desktop && cd'
 
 #PROMPT
 # name: sashimi
