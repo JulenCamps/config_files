@@ -35,16 +35,12 @@ fi
 # Keyboard Layout
 setxkbmap es &
 # Wallpaper
- feh --bg-scale /home/julen/.config/qtile/img/HD\ 1080P\ No\ Logo\ PL\ 1820.png &
+ feh --bg-scale /home/julen/.config/qtile/img/01.png &
 # Audio 
-pulseaudio &
+#pulseaudio &
 # Composer
 picom & 
 # Udiskie
 udiskie -t &
 # Network
 nm-applet &
-
-
-
-

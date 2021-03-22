@@ -27,7 +27,7 @@
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Screen
+from libqtile.config import Click, Drag, Group, Key, Screen, Match
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -93,11 +93,11 @@ keys = [
         lazy.layout.decrease_nmaster(),
         desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
             ),
-    
+
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # ------------ App Configs ------------
-    
+
     # Browser
     Key([mod], "b", lazy.spawn("firefox")),
     # Screenshot
@@ -115,7 +115,7 @@ keys = [
 #nf-mdi-folder
 #nf-seti-config
 
-groups = [Group(i) for i in [ "  ", "  ", "  ", "  ", "  ", "  "]]
+groups = [Group(i) for i in [ "WWW", "SYS", "DEV", "DOC", "ARC", "MIS"]]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
@@ -162,13 +162,19 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Image(
+                     filename = "~/.config/qtile/img/archlogo.png",
+                     scale = "False",
+                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(alacritty)}
+                ),
+
                 widget.GroupBox(
                     foreground=["#f1ffff", "#f1ffff"],
                     background=["#0f101a", "#0f101a"],
-                    font='UbuntuMono Nerd Font',
-                    fontsize=19,
+                    font='Ubuntu Bold',
+                    fontsize=9,
                     margin_y=3,
-                    margin_x=0,
+                    margin_x=3,
                     padding_y=8,
                     padding_x=5,
                     borderwidth=1,
@@ -293,23 +299,17 @@ bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
+    *layout.Floating.default_float_rules,
+    Match(wm_class='confirmreset'),  # gitk
+    Match(wm_class='makebranch'),  # gitk
+    Match(wm_class='maketag'),  # gitk
+    Match(wm_class='ssh-askpass'),  # ssh-askpass
+    Match(title='branchdialog'),  # gitk
+    Match(title='pinentry'),  # GPG key password entry
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+reconfigure_screens = True
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
