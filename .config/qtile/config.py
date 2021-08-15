@@ -26,6 +26,7 @@
 
 from typing import List  # noqa: F401
 
+from libqtile import qtile
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen, Match
 from libqtile.lazy import lazy
@@ -96,6 +97,10 @@ keys = [
 
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
+    # Brightness Control
+    Key([mod], "o", lazy.spawn("backlight_control +10")),
+    Key([mod], "i", lazy.spawn("backlight_control -10")),
+
     # ------------ App Configs ------------
 
     # Browser
@@ -165,7 +170,7 @@ screens = [
                 widget.Image(
                      filename = "~/.config/qtile/img/archlogo.png",
                      scale = "False",
-                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(alacritty)}
+                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(firefox)},
                 ),
 
                 widget.GroupBox(
@@ -215,31 +220,57 @@ screens = [
                     background=["#0174DF", "#0174DF"],
                     format='{down} ↓↑ {up}'
                     # To run this widget you need to install psutil frop pip library         
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#0174DF", "#0174DF"]
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#a151d3", "#a151d3"],
+                    background=["#0174DF", "#0174DF"],
+                    fontsize = 37,
+                    padding= -2
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#a151d3", "#a151d3"],
+                ),
+                widget.CheckUpdates(
+                    background=["#a151d3", "#a151d3"],
+                    #foreground=["#0174DF", "#0174DF"],
+                    distro="Arch_checkupdates", 
+                    display_format="{updates} Updates",
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#a151d3", "#a151d3"]
                 ),   
                 widget.TextBox(
                     text="",
-                    foreground=["#F07178", "#F07178"],
-                    background=["#0174DF", "#0174DF"],
+                    foreground=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
                     fontsize = 37,
                     padding= -2
                 ),
                 widget.CurrentLayoutIcon(
                     foreground=["#0f101a", "#0f101a"],
-                    background=["#F07178", "#F07178"],
+                    background=["#0174DF", "#0174DF"],
                     scale=0.65
                 ),
                 widget.CurrentLayout(
                     foreground=["#0f101a", "#0f101a"],
-                    background=["#F07178", "#F07178"]
+                    background=["#0174DF", "#0174DF"]
                 ),
                 widget.Sep(
                     linewidth=0, padding=5,
-                    background=["#F07178", "#F07178"]
+                    background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
                     text="",
                     foreground=["#a151d3", "#a151d3"],
-                    background=["#F07178", "#F07178"],
+                    background=["#0174DF", "#0174DF"],
                     fontsize = 37,
                     padding= -2
                 ),
@@ -251,7 +282,7 @@ screens = [
                 widget.Clock(
                     format='%d/%m/%Y - %H:%M',
                     foreground=["#0f101a", "#0f101a"],
-                    background=["#a151d3", "#a151d3"]
+                    background=["#a151d3", "#a151d3"],
                 ),
                 widget.Sep(
                     linewidth=0, padding=5,

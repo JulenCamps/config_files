@@ -5,3 +5,4 @@ volumeicon &
 
 # systray battery icon
 cbatticon -u 5 &
+
