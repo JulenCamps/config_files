@@ -98,17 +98,18 @@ keys = [
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Brightness Control
-    Key([mod], "o", lazy.spawn("backlight_control +10")),
-    Key([mod], "i", lazy.spawn("backlight_control -10")),
+    Key([mod], "o", lazy.spawn("brightnessctl  s +10")),
+    Key([mod], "i", lazy.spawn("brightnessctl  s 10-")),
 
     # ------------ App Configs ------------
 
     # Browser
     Key([mod], "b", lazy.spawn("firefox")),
+    Key([mod], "t", lazy.spawn("/opt/tor-browser_en-US/Browser/start-tor-browser")),
     # Screenshot
     Key([mod], "p", lazy.spawn("scrot /home/julen/images/screenshots/")),
     # Nautilus (file manager)
-    Key([mod], "f", lazy.spawn("nautilus")),
+    Key([mod], "f", lazy.spawn("nemo")),
 ]   
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
@@ -170,7 +171,158 @@ screens = [
                 widget.Image(
                      filename = "~/.config/qtile/img/archlogo.png",
                      scale = "False",
-                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(firefox)},
+                     foreground=["#a151d3", "#a151d3"],
+                     background=["#0f101a", "#0f101a"],
+                     #mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)}
+                ),
+
+                widget.GroupBox(
+                    foreground=["#f1ffff", "#f1ffff"],
+                    background=["#0f101a", "#0f101a"],
+                    font='Ubuntu Bold',
+                    fontsize=9,
+                    margin_y=3,
+                    margin_x=3,
+                    padding_y=8,
+                    padding_x=5,
+                    borderwidth=1,
+                    active=["#f1ffff", "#f1ffff"],
+                    inactive=["#f1ffff", "#f1ffff"],
+                    rounded=False,
+                    highlight_method='block',
+                    this_current_screen_border=["#a151d3", "#a151d3"],
+                    this_screen_border=["#353c4a", "#353c4a"],
+                    other_current_screen_border=["#0f101a", "#0f101a"],
+                    other_screen_border=["#0f101a", "#0f101a"]
+                ),
+                widget.WindowName(
+                    foreground=["#a151d3", "#a151d3"],
+                    background=["#0f101a", "#0f101a"],
+                    fontsize=16
+                ),
+                widget.Chord(
+                    chords_colors={
+                        'launch': ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0174DF", "#0174DF"],
+                    background=["#0f101a", "#0f101a"],
+                    fontsize = 37,
+                    padding= -2
+                ), 
+                widget.TextBox(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"],
+                    text='  ' # Icon: nf-fa-feed
+                ),
+                widget.Net(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"],
+                    format='{down} ↓↑ {up}'
+                    # To run this widget you need to install psutil frop pip library         
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#0174DF", "#0174DF"]
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#a151d3", "#a151d3"],
+                    background=["#0174DF", "#0174DF"],
+                    fontsize = 37,
+                    padding= -2
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#a151d3", "#a151d3"],
+                ),
+                widget.CheckUpdates(
+                    background=["#a151d3", "#a151d3"],
+                    #foreground=["#0174DF", "#0174DF"],
+                    distro="Arch_checkupdates", 
+                    display_format="{updates} Updates",
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#a151d3", "#a151d3"]
+                ),   
+                widget.TextBox(
+                    text="",
+                    foreground=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
+                    fontsize = 37,
+                    padding= -2
+                ),
+                widget.CurrentLayoutIcon(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"],
+                    scale=0.65
+                ),
+                widget.CurrentLayout(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"]
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#0174DF", "#0174DF"]
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#a151d3", "#a151d3"],
+                    background=["#0174DF", "#0174DF"],
+                    fontsize = 37,
+                    padding= -2
+                ),
+                widget.TextBox(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#a151d3", "#a151d3"],
+                    text='  ' # Icon: nf-mdi-calendar_clock
+                ),
+                widget.Clock(
+                    format='%d/%m/%Y - %H:%M',
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#a151d3", "#a151d3"],
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#a151d3", "#a151d3"]
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#a151d3", "#a151d3"],
+                    fontsize = 37,
+                    padding= -2
+                ),    
+                widget.Systray(
+                    background=["#0f101a", "#0f101a"]
+                    # Battery icon: install cbatticon from yay and add it to xsession
+                    # Volumeicon: install volumeicon and add it to xsession
+                    # Network Manager: install network-manager-applet and add nm-applet to .xsession
+                    # Udiskie: install udiskie ntfs-3g and add udiskie to .xsession
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#0f101a", "#0f101a"]
+                ),
+            ],
+            24,
+            opacity=0.9
+        ),
+    ),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.Image(
+                     filename = "~/.config/qtile/img/archlogo.png",
+                     scale = "False",
+                     foreground=["#a151d3", "#a151d3"],
+                     background=["#0f101a", "#0f101a"],
+                     #mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)}
                 ),
 
                 widget.GroupBox(
