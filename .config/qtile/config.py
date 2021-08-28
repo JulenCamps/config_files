@@ -44,6 +44,8 @@ mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
+    # ------------ Window Navigation ------------
+
     # Switch between windows in current stack pane
     Key([mod], "k", lazy.layout.down(),
         desc="Move focus down in stack pane"),
@@ -84,12 +86,12 @@ keys = [
     Key([mod], "m", lazy.spawn("rofi -show drun")),
 
     # Window Nav
-    Key([mod], "j",
+    Key([mod], "a",
         lazy.layout.grow(),
         lazy.layout.increase_nmaster(),
         desc='Expand window (MonadTall), increase number in master pane (Tile)'
         ),
-    Key([mod], "k",
+    Key([mod], "d",
         lazy.layout.shrink(),
         lazy.layout.decrease_nmaster(),
         desc='Shrink window (MonadTall), decrease number in master pane (Tile)'
@@ -97,20 +99,29 @@ keys = [
 
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
-    # Brightness Control
-    Key([mod], "o", lazy.spawn("brightnessctl  s +10")),
-    Key([mod], "i", lazy.spawn("brightnessctl  s 10-")),
+    
+
+
+
 
     # ------------ App Configs ------------
 
-    # Browser
+    # Browser (firefox)
     Key([mod], "b", lazy.spawn("firefox")),
     Key([mod], "t", lazy.spawn("/opt/tor-browser_en-US/Browser/start-tor-browser")),
-    # Screenshot
+    # Screenshot (scrot)
     Key([mod], "p", lazy.spawn("scrot /home/julen/images/screenshots/")),
-    # Nautilus (file manager)
+    # File Manager(nemo)
     Key([mod], "f", lazy.spawn("nemo")),
+    #Screen Locker(slock)
+    Key([mod], "g", lazy.spawn("slock")),
+    # Brightness Control
+    Key([mod], "o", lazy.spawn("brightnessctl  s +10")),
+    Key([mod], "i", lazy.spawn("brightnessctl  s 10-")),
 ]   
+
+
+#Groups
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 # Icons: 
@@ -132,12 +143,12 @@ for i, group in enumerate(groups):
         Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
     ])
 
-# Layouts and layout rules
 
+# Layouts and layout rules
 
 layout_conf = {
     'border_focus': '#a151d3',
-    'border_width': 1,
+    'border_width': 2,
     'margin': 4 
 }       
 
@@ -440,24 +451,6 @@ screens = [
                     linewidth=0, padding=5,
                     background=["#a151d3", "#a151d3"]
                 ),
-                widget.TextBox(
-                    text="",
-                    foreground=["#0f101a", "#0f101a"],
-                    background=["#a151d3", "#a151d3"],
-                    fontsize = 37,
-                    padding= -2
-                ),    
-                widget.Systray(
-                    background=["#0f101a", "#0f101a"]
-                    # Battery icon: install cbatticon from yay and add it to xsession
-                    # Volumeicon: install volumeicon and add it to xsession
-                    # Network Manager: install network-manager-applet and add nm-applet to .xsession
-                    # Udiskie: install udiskie ntfs-3g and add udiskie to .xsession
-                ),
-                widget.Sep(
-                    linewidth=0, padding=5,
-                    background=["#0f101a", "#0f101a"]
-                ),
             ],
             24,
             opacity=0.9
@@ -476,7 +469,6 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-main = None  # WARNING: this is deprecated and will be removed soon
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
