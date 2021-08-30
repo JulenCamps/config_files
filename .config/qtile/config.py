@@ -1,31 +1,9 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+#Qtile COnfiguration
+#Julen Camps
 
 from typing import List  # noqa: F401
 
+import os
 from libqtile import qtile
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Screen, Match
@@ -149,21 +127,21 @@ for i, group in enumerate(groups):
 layout_conf = {
     'border_focus': '#a151d3',
     'border_width': 2,
-    'margin': 4 
+    'margin': 4, 
 }       
 
 layouts = [
+    layout.MonadTall(**layout_conf),
     layout.Max(),
     # layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
-    # layout.Bsp(),
+    #layout.Bsp(),
     # layout.Columns(),
-    # layout.Matrix(),
-    layout.MonadTall(**layout_conf),
+    #layout.Matrix(**layout_conf),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.TreeTab(),
+    #layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -179,14 +157,13 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Image(
-                     filename = "~/.config/qtile/img/archlogo.png",
-                     scale = "False",
-                     foreground=["#a151d3", "#a151d3"],
-                     background=["#0f101a", "#0f101a"],
-                     #mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)}
+                widget.TextBox(
+                    text="",
+                    foreground=["#f1ffff", "#f1ffff"],
+                    background=["#0f101a", "#0f101a"],
+                    fontsize=20,
+                    padding= 15,
                 ),
-
                 widget.GroupBox(
                     foreground=["#f1ffff", "#f1ffff"],
                     background=["#0f101a", "#0f101a"],
@@ -195,12 +172,12 @@ screens = [
                     margin_y=3,
                     margin_x=3,
                     padding_y=8,
-                    padding_x=5,
-                    borderwidth=1,
+                    padding_x=6,
+                    borderwidth=3,
                     active=["#f1ffff", "#f1ffff"],
                     inactive=["#f1ffff", "#f1ffff"],
                     rounded=False,
-                    highlight_method='block',
+                    highlight_method='line',
                     this_current_screen_border=["#a151d3", "#a151d3"],
                     this_screen_border=["#353c4a", "#353c4a"],
                     other_current_screen_border=["#0f101a", "#0f101a"],
@@ -247,16 +224,16 @@ screens = [
                     padding= -2
                 ),
                 widget.TextBox(
-                    text="",
+                    text="",
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
                 ),
-                widget.CheckUpdates(
+                widget.ThermalSensor(
+                    foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
-                    #foreground=["#0174DF", "#0174DF"],
-                    distro="Arch_checkupdates", 
-                    display_format="{updates} Updates",
-                ),
+                    threshold = 85,
+                    padding = 5
+                    ),
                 widget.Sep(
                     linewidth=0, padding=5,
                     background=["#a151d3", "#a151d3"]
@@ -286,7 +263,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -2, 
                 ),
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
@@ -322,20 +299,20 @@ screens = [
                 ),
             ],
             24,
+            margin=[5, 5, 2, 5],
             opacity=0.9
         ),
     ),
     Screen(
         top=bar.Bar(
             [
-                widget.Image(
-                     filename = "~/.config/qtile/img/archlogo.png",
-                     scale = "False",
-                     foreground=["#a151d3", "#a151d3"],
-                     background=["#0f101a", "#0f101a"],
-                     #mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)}
+                widget.TextBox(
+                    text="",
+                    foreground=["#f1ffff", "#f1ffff"],
+                    background=["#0f101a", "#0f101a"],
+                    fontsize=20,
+                    padding= 15,
                 ),
-
                 widget.GroupBox(
                     foreground=["#f1ffff", "#f1ffff"],
                     background=["#0f101a", "#0f101a"],
@@ -345,11 +322,11 @@ screens = [
                     margin_x=3,
                     padding_y=8,
                     padding_x=5,
-                    borderwidth=1,
+                    borderwidth=3,
                     active=["#f1ffff", "#f1ffff"],
                     inactive=["#f1ffff", "#f1ffff"],
                     rounded=False,
-                    highlight_method='block',
+                    highlight_method='line',
                     this_current_screen_border=["#a151d3", "#a151d3"],
                     this_screen_border=["#353c4a", "#353c4a"],
                     other_current_screen_border=["#0f101a", "#0f101a"],
@@ -368,8 +345,26 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    foreground=["#0174DF", "#0174DF"],
+                    foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
+                    fontsize = 37,
+                    padding= -2
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#a151d3", "#a151d3"],
+                ),
+                widget.ThermalSensor(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#a151d3", "#a151d3"],
+                    threshold = 85,
+                    padding = 5
+                    ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
                     fontsize = 37,
                     padding= -2
                 ), 
@@ -402,9 +397,10 @@ screens = [
                 ),
                 widget.CheckUpdates(
                     background=["#a151d3", "#a151d3"],
-                    #foreground=["#0174DF", "#0174DF"],
+                    foreground=["#0174DF", "#0174DF"],
                     distro="Arch_checkupdates", 
                     display_format="{updates} Updates",
+                    update_interval=60
                 ),
                 widget.Sep(
                     linewidth=0, padding=5,
@@ -453,6 +449,7 @@ screens = [
                 ),
             ],
             24,
+            margin=[5, 5, 1, 5],
             opacity=0.9
         ),
     ),
