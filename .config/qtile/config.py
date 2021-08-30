@@ -321,7 +321,7 @@ screens = [
                     margin_y=3,
                     margin_x=3,
                     padding_y=8,
-                    padding_x=5,
+                    padding_x=6,
                     borderwidth=3,
                     active=["#f1ffff", "#f1ffff"],
                     inactive=["#f1ffff", "#f1ffff"],
@@ -345,26 +345,8 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    foreground=["#a151d3", "#a151d3"],
-                    background=["#0f101a", "#0f101a"],
-                    fontsize = 37,
-                    padding= -2
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=["#0f101a", "#0f101a"],
-                    background=["#a151d3", "#a151d3"],
-                ),
-                widget.ThermalSensor(
-                    foreground=["#0f101a", "#0f101a"],
-                    background=["#a151d3", "#a151d3"],
-                    threshold = 85,
-                    padding = 5
-                    ),
-                widget.TextBox(
-                    text="",
                     foreground=["#0174DF", "#0174DF"],
-                    background=["#a151d3", "#a151d3"],
+                    background=["#0f101a", "#0f101a"],
                     fontsize = 37,
                     padding= -2
                 ), 
@@ -391,17 +373,16 @@ screens = [
                     padding= -2
                 ),
                 widget.TextBox(
-                    text="",
+                    text="",
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
                 ),
-                widget.CheckUpdates(
+                widget.ThermalSensor(
+                    foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
-                    foreground=["#0174DF", "#0174DF"],
-                    distro="Arch_checkupdates", 
-                    display_format="{updates} Updates",
-                    update_interval=60
-                ),
+                    threshold = 85,
+                    padding = 5
+                    ),
                 widget.Sep(
                     linewidth=0, padding=5,
                     background=["#a151d3", "#a151d3"]
@@ -431,7 +412,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -2, 
                 ),
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
@@ -444,7 +425,7 @@ screens = [
                     background=["#a151d3", "#a151d3"],
                 ),
                 widget.Sep(
-                    linewidth=0, padding=5,
+                    linewidth=0, padding=8,
                     background=["#a151d3", "#a151d3"]
                 ),
             ],
