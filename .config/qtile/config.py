@@ -79,9 +79,6 @@ keys = [
 
     
 
-
-
-
     # ------------ App Configs ------------
 
     # Browser (firefox)
@@ -94,8 +91,8 @@ keys = [
     #Screen Locker(slock)
     Key([mod], "g", lazy.spawn("slock")),
     # Brightness Control
-    Key([mod], "o", lazy.spawn("brightnessctl  s +10")),
-    Key([mod], "i", lazy.spawn("brightnessctl  s 10-")),
+    Key([mod], "o", lazy.spawn("brightnessctl  s +5%")),
+    Key([mod], "i", lazy.spawn("brightnessctl  s 5%-")),
 ]   
 
 
@@ -127,7 +124,7 @@ for i, group in enumerate(groups):
 layout_conf = {
     'border_focus': '#a151d3',
     'border_width': 2,
-    'margin': 4, 
+    'margin': 5, 
 }       
 
 layouts = [
@@ -196,21 +193,43 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    foreground=["#0174DF", "#0174DF"],
+                    foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
                     fontsize = 37,
                     padding= -2
                 ), 
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
-                    background=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
                     text='  ' # Icon: nf-fa-feed
                 ),
                 widget.Net(
                     foreground=["#0f101a", "#0f101a"],
-                    background=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
                     format='{down} ↓↑ {up}'
                     # To run this widget you need to install psutil frop pip library         
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#a151d3", "#a151d3"]
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
+                    fontsize = 37,
+                    padding= -2
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"],
+                    padding=8
+                ),
+                widget.Backlight(
+                    backlight_name='amdgpu_bl0',
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"],
                 ),
                 widget.Sep(
                     linewidth=0, padding=5,
@@ -299,14 +318,14 @@ screens = [
                 ),
             ],
             24,
-            margin=[5, 5, 2, 5],
+            margin=[5, 5, 0, 5],
             opacity=0.9
         ),
     ),
     Screen(
         top=bar.Bar(
             [
-                widget.TextBox(
+                 widget.TextBox(
                     text="",
                     foreground=["#f1ffff", "#f1ffff"],
                     background=["#0f101a", "#0f101a"],
@@ -345,21 +364,43 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    foreground=["#0174DF", "#0174DF"],
+                    foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
                     fontsize = 37,
                     padding= -2
                 ), 
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
-                    background=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
                     text='  ' # Icon: nf-fa-feed
                 ),
                 widget.Net(
                     foreground=["#0f101a", "#0f101a"],
-                    background=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
                     format='{down} ↓↑ {up}'
                     # To run this widget you need to install psutil frop pip library         
+                ),
+                widget.Sep(
+                    linewidth=0, padding=5,
+                    background=["#a151d3", "#a151d3"]
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0174DF", "#0174DF"],
+                    background=["#a151d3", "#a151d3"],
+                    fontsize = 37,
+                    padding= -2
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"],
+                    padding=8
+                ),
+                widget.Backlight(
+                    backlight_name='amdgpu_bl0',
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#0174DF", "#0174DF"],
                 ),
                 widget.Sep(
                     linewidth=0, padding=5,
@@ -430,7 +471,7 @@ screens = [
                 ),
             ],
             24,
-            margin=[5, 5, 1, 5],
+            margin=[5, 5, 0, 5],
             opacity=0.9
         ),
     ),
