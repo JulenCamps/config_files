@@ -196,7 +196,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ), 
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
@@ -218,7 +218,7 @@ screens = [
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ),
                 widget.TextBox(
                     text="",
@@ -240,7 +240,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ),
                 widget.TextBox(
                     text="",
@@ -262,7 +262,7 @@ screens = [
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ),
                 widget.CurrentLayoutIcon(
                     foreground=["#0f101a", "#0f101a"],
@@ -282,7 +282,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 37,
-                    padding= -2, 
+                    padding= -3, 
                 ),
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
@@ -303,7 +303,7 @@ screens = [
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ),    
                 widget.Systray(
                     background=["#0f101a", "#0f101a"]
@@ -367,7 +367,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ), 
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
@@ -389,7 +389,7 @@ screens = [
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ),
                 widget.TextBox(
                     text="",
@@ -411,7 +411,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ),
                 widget.TextBox(
                     text="",
@@ -433,7 +433,7 @@ screens = [
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 37,
-                    padding= -2
+                    padding= -3
                 ),
                 widget.CurrentLayoutIcon(
                     foreground=["#0f101a", "#0f101a"],
@@ -453,7 +453,7 @@ screens = [
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 37,
-                    padding= -2, 
+                    padding= -3, 
                 ),
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
