@@ -1,4 +1,4 @@
-#Qtile COnfiguration
+#Qtile Configuration
 #Julen Camps
 
 from typing import List  # noqa: F401
@@ -17,9 +17,12 @@ import subprocess
 def autostart():
     subprocess.call([path.join(path.expanduser('~'), '.config', 'qtile', 'autostart.sh')])
 
-
 mod = "mod4"
 terminal = guess_terminal()
+home = path.expanduser('~')
+
+def shutdown_menu():
+    qtile.cmd_spawn(home + "/.config/qtile/shutdown.sh")
 
 keys = [
     # ------------ Window Navigation ------------
@@ -93,6 +96,8 @@ keys = [
     # Brightness Control
     Key([mod], "o", lazy.spawn("brightnessctl  s +5%")),
     Key([mod], "i", lazy.spawn("brightnessctl  s 5%-")),
+    #Shutdown menu
+    Key([mod], "k", lazy.spawn("/home/julen/.config/qtile/shutdown.sh")),
 ]   
 
 
@@ -160,13 +165,14 @@ screens = [
                     background=["#0f101a", "#0f101a"],
                     fontsize=20,
                     padding= 15,
+                    mouse_callbacks={"Button1" : lambda: qtile.cmd_spawn('rofi -show drun')},
                 ),
                 widget.GroupBox(
                     foreground=["#f1ffff", "#f1ffff"],
                     background=["#0f101a", "#0f101a"],
                     font='Ubuntu Bold',
                     fontsize=9,
-                    margin_y=3,
+                    margin_y=6,
                     margin_x=3,
                     padding_y=8,
                     padding_x=6,
@@ -192,10 +198,10 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ), 
                 widget.TextBox(
@@ -214,10 +220,10 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ),
                 widget.TextBox(
@@ -236,10 +242,10 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ),
                 widget.TextBox(
@@ -258,10 +264,10 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),   
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ),
                 widget.CurrentLayoutIcon(
@@ -278,10 +284,10 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3, 
                 ),
                 widget.TextBox(
@@ -299,11 +305,12 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
-                    fontsize = 37,
-                    padding= -3
+                    fontsize = 50,
+                    padding= -3,
+
                 ),    
                 widget.Systray(
                     background=["#0f101a", "#0f101a"]
@@ -316,9 +323,20 @@ screens = [
                     linewidth=0, padding=5,
                     background=["#0f101a", "#0f101a"]
                 ),
+                widget.TextBox(
+                    text='⏻',
+                    mouse_callbacks = {'Button1' : shutdown_menu},
+                    padding=5,
+                    foreground=['#8aaefc'],
+                    background=["#0f101a", "#0f101a"],
+                ),
+                widget.Sep(
+                    linewidth=0, padding=15,
+                    background=["#0f101a", "#0f101a"]
+                ),
             ],
-            24,
-            margin=[5, 5, 0, 5],
+            30,
+            margin=[0, 0, 0, 0],
             opacity=0.9
         ),
     ),
@@ -337,7 +355,7 @@ screens = [
                     background=["#0f101a", "#0f101a"],
                     font='Ubuntu Bold',
                     fontsize=9,
-                    margin_y=3,
+                    margin_y=6,
                     margin_x=3,
                     padding_y=8,
                     padding_x=6,
@@ -363,10 +381,10 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ), 
                 widget.TextBox(
@@ -385,10 +403,10 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ),
                 widget.TextBox(
@@ -407,10 +425,10 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ),
                 widget.TextBox(
@@ -429,10 +447,10 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),   
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3
                 ),
                 widget.CurrentLayoutIcon(
@@ -449,10 +467,10 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="",
+                    text="卑",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
-                    fontsize = 37,
+                    fontsize = 50,
                     padding= -3, 
                 ),
                 widget.TextBox(
@@ -470,8 +488,8 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),
             ],
-            24,
-            margin=[5, 5, 0, 5],
+            30,
+            margin=[0, 0, 0, 0],
             opacity=0.9
         ),
     ),
