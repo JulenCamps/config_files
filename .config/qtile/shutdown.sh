@@ -21,7 +21,7 @@ case $chosen in
         systemctl reboot
         ;;
     $suspend)
-	    systemctl suspend
+	slock & sleep 1; systemctl suspend
         ;;
     $logout)
         qtile cmd-obj -o cmd -f shutdown	
