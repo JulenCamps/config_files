@@ -1,4 +1,3 @@
-background_opacity: 0.9
 colors:
   bright:
     black: '0x282a40'
@@ -31,8 +30,9 @@ font:
     style: Regular
   offset:
     y: 3
-  size: 12
+  size: 9
 window:
+  opacity: 0.9
   padding:
     x: 5
     y: 5
