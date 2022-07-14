@@ -12,7 +12,7 @@ configuration {
 	bg:								#282a36;
 	bg-light:						#44475a;
 	fg:								#f8f8f2;
-	button:							#6272a4;
+	button:							#a151d3;
 	background-color:				@bg;
 	text-color:						@fg;
 }

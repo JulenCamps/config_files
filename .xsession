@@ -26,6 +26,9 @@ fi
 # start some nice programs
 
 #Set my personal screen layout
+#xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal
+
+#Secondary screen layout
 xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --pos 0x1080 --rotate normal
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -36,11 +39,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 #Nextcloud
-nextcloud &
+#nextcloud &
 # Keyboard Layout
 setxkbmap es &
 # Wallpaper
- feh --bg-scale /home/julen/.config/qtile/img/01.png &
+ feh --bg-scale /home/julen/.config/qtile/img/004.jpg &
 # Composer
 picom & 
 # Udiskie
@@ -49,7 +52,9 @@ udiskie -t &
 nm-applet &
 #Mullvad
 mullvad-vpn &
-
-#Set nvidia as primary GPU
-xrandr --setprovideroutputsource modesetting NVIDIA-0 &
-xrandr --auto &
+#Optimus manager
+optimus-manager-qt &
+#Policykit
+lxpolkit &
+#Lenguagetool(server)
+java -cp /opt/LanguageTool-5.6/languagetool-server.jar org.languagetool.server.HTTPServer --port 8081 --allow-origin &
