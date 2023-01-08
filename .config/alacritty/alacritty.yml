@@ -18,7 +18,7 @@ colors:
     white: '0xbfd5de'
     yellow: '0xffd47e'
   primary:
-    background: '0x0f101a'
+    background: '0x262626'
     foreground: '0xc5c9de'
 font:
   bold:
@@ -32,7 +32,8 @@ font:
     y: 3
   size: 9
 window:
-  opacity: 0.9
+  opacity: 0.97 
   padding:
     x: 5
     y: 5
+      
