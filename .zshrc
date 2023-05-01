@@ -19,8 +19,6 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 
 #Aliases
 alias cat='bat'
-alias vim='nvim'
-alias tor='cd /home/julen/.tor-browser_en-US/ && ./start-tor-browser.desktop && cd'
 alias ls='exa'
 
 #Functions

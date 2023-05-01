@@ -43,7 +43,7 @@ fi
 # Keyboard Layout
 setxkbmap es &
 # Wallpaper
- feh --bg-scale /home/julen/.config/qtile/img/004.jpg &
+feh --bg-scale /home/julen/.config/qtile/img/004.png &
 # Composer
 picom & 
 # Udiskie
@@ -56,5 +56,10 @@ mullvad-vpn &
 optimus-manager-qt &
 #Policykit
 lxpolkit &
+#Playerctl
+playerctld daemon &
+#Pasystray
+pasystray &
+
 #Lenguagetool(server)
-java -cp /opt/LanguageTool-5.6/languagetool-server.jar org.languagetool.server.HTTPServer --port 8081 --allow-origin &
+#java -cp /opt/LanguageTool-5.6/languagetool-server.jar org.languagetool.server.HTTPServer --port 8081 --allow-origin &
