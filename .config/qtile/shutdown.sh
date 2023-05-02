@@ -6,9 +6,9 @@ rofi_command="rofi -theme powermenu"
 
 #### Options ###
 shutdown=""
-reboot=""
-suspend="鈴"
-logout=""
+reboot="󰑓"
+suspend="󰒲"
+logout="󰍃"
 
 options="$shutdown\n$reboot\n$suspend\n$logout"
 

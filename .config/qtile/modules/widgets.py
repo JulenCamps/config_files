@@ -62,7 +62,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
                     fontsize = 50,
@@ -71,7 +71,7 @@ screens = [
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
-                    text='  ' # Icon: nf-fa-feed
+                    text=' ' # Icon: nf-fa-feed
                 ),
                 widget.Net(
                     foreground=["#0f101a", "#0f101a"],
@@ -84,14 +84,14 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 50,
                     padding= -3
                 ),
                 widget.TextBox(
-                    text="",
+                    text="󰃞",
                     foreground=["#0f101a", "#0f101a"],
                     background=["#0174DF", "#0174DF"],
                     padding=8
@@ -106,7 +106,7 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 50,
@@ -128,7 +128,7 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),   
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 50,
@@ -148,7 +148,7 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 50,
@@ -157,7 +157,7 @@ screens = [
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
-                    text='  ' # Icon: nf-mdi-calendar_clock
+                    text='󰃰 ' # Icon: nf-mdi-calendar_clock
                 ),
                 widget.Clock(
                     format='%d/%m/%Y - %H:%M',
@@ -169,7 +169,7 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 50,
@@ -245,7 +245,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0f101a", "#0f101a"],
                     fontsize = 50,
@@ -267,14 +267,14 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 50,
                     padding= -3
                 ),
                 widget.TextBox(
-                    text="",
+                    text="󰃞",
                     foreground=["#0f101a", "#0f101a"],
                     background=["#0174DF", "#0174DF"],
                     padding=8
@@ -289,7 +289,7 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 50,
@@ -311,7 +311,7 @@ screens = [
                     background=["#a151d3", "#a151d3"]
                 ),   
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#0174DF", "#0174DF"],
                     background=["#a151d3", "#a151d3"],
                     fontsize = 50,
@@ -331,7 +331,7 @@ screens = [
                     background=["#0174DF", "#0174DF"]
                 ),
                 widget.TextBox(
-                    text="卑",
+                    text="",
                     foreground=["#a151d3", "#a151d3"],
                     background=["#0174DF", "#0174DF"],
                     fontsize = 50,
@@ -340,7 +340,7 @@ screens = [
                 widget.TextBox(
                     foreground=["#0f101a", "#0f101a"],
                     background=["#a151d3", "#a151d3"],
-                    text='  ' # Icon: nf-mdi-calendar_clock
+                    text='󰃰 ' # Icon: nf-mdi-calendar_clock
                 ),
                 widget.Clock(
                     format='%d/%m/%Y - %H:%M',
